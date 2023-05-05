@@ -15,10 +15,9 @@ def main(options):
     logger.onLog(__terminalLogging)
 
     compression_options = {"logger": logger}
-    compression: CompressionHandler = None
+    compression_path = options["game_directory"]
+    compression_handler: CompressionHandler = Decompressor
     if options["action"] == "compress":
-        compression = Compressor(options["path"], compression_options)
-    else:
-        compression = Decompressor(options["path"], compression_options)
-
+        compression_handler = Compressor
+    compression = compression_handler(compression_path, compression_options)
     compression.start()
