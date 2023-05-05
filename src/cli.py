@@ -45,15 +45,14 @@ Compression:
 )
 @click.option("--quiet", is_flag=True, help="Do not show log")
 def cli(game_directory, action, verbose, quiet):
-    if action == "compress":
-        core.compress(game_directory)
-    else:
-        core.decompress(game_directory)
-
-    click.echo(f"game_directory: {game_directory}")
-    click.echo(f"action: {action}")
-    click.echo(f"verbose: {verbose}")
-    click.echo(f"quiet: {quiet}")
+    core.main(
+        {
+            "game_directory": game_directory,
+            "action": action,
+            "verbose": verbose,
+            "quiet": quiet,
+        }
+    )
 
 
 if __name__ == "__main__":
