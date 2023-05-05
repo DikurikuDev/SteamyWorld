@@ -64,7 +64,7 @@ class Decompressor(CompressionHandler):
             lock_path = join(dir, "z.lock")
 
             self.logger.debug(f"creating {lock_path}...")
-            with open(lock_path, "w") as lock:
+            with open(lock_path, "a") as lock:
                 lock.write(f"{output_name}\r\n")
 
             self.logger.info(f"decompressing {path}...")
