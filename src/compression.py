@@ -37,7 +37,7 @@ class Compressor(CompressionHandler):
                         impak_file.write(absolute_path, relative_path)
                         self.logger.debug(f"removing {absolute_path}...")
                         remove(absolute_path)
-                        self.logger.debug(f"removing folder (if empty)...")
+                        self.logger.debug("removing folder (if empty)...")
                         _remove_folder_if_empty(dirname(absolute_path))
 
             self.logger.debug(f"removing {path}...")
@@ -57,19 +57,19 @@ class Compressor(CompressionHandler):
 
                     self.logger.info(f"compressing {absolute_path}...")
                     with open(absolute_path, "wb") as zfile:
-                        # adding header        
+                        # adding header
                         file_size = _get_file_size(original_path)
                         file_size_as_bytes = file_size.to_bytes(4, "little")
                         zfile.write(file_size_as_bytes)
                         with open(original_path, "rb") as file:
                             # adding file
                             uncompressed_data = file.read()
-                            compressed_data = zlib.compress(uncompressed_data)            
+                            compressed_data = zlib.compress(uncompressed_data)
                             zfile.write(compressed_data)
-                    
+
                     self.logger.debug(f"removing {original_path}...")
                     remove(original_path)
-            
+
             self.logger.debug(f"removing {file_path}...")
             remove(path)
 
@@ -155,8 +155,10 @@ class Decompressor(CompressionHandler):
 def _find_all_files(path, filename_pattern):
     return glob(f"{path}/**/{filename_pattern}", recursive=True)
 
+
 def _get_file_size(path):
     return getsize(path)
+
 
 def _remove_folder_if_empty(path):
     if not listdir(path):

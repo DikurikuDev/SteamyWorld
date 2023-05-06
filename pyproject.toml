@@ -5,6 +5,7 @@ description = "A game modding CLI tool to handle Steamworld games assets."
 authors = ["Dikuriku <dikuriku.dev@gmail.com>"]
 license = "GLP-3.0"
 readme = "README.md"
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
