@@ -18,7 +18,11 @@ flake8 = "^6.0.0"
 pre-commit = "^3.2.2"
 tox = "^4.5.1"
 coverage = "^7.2.4"
+flake8-pyproject = "^1.2.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+exclude = ['.venv', '.git', '.tox']

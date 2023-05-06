@@ -15,7 +15,7 @@ $ poetry install
 # 2 - Load dependencies
 $ poetry shell
 # to run tests
-$ pytest ./tests/**/*.py
+$ pytest .
 # to run tox
 $ tox
 
@@ -23,9 +23,9 @@ $ tox
 # however, you can run yourself
 
 # to run code formatter
-$ black ./**/*.py
+$ black .
 # to run code linter
-$ flake8 ./**/*.py
+$ flake8 .
 
 # to exit poetry shell (ctrl+d) or exit
 ```
