@@ -17,7 +17,7 @@ A game modding CLI tool to handle Steamworld games assets.
 - Python3+
 - Poetry
 
-## Getting started
+## Getting started (Using)
 
 ```sh
 #  to run the code:
@@ -26,7 +26,26 @@ $ poetry install
 #  2 - Load dependencies.
 $ poetry shell
 #  Now you can use Python and the dependencies installed.
-$ python ./src/main.py
+$ python ./src/cli.py
+
+# To decompress without print log:
+$ steamy --quiet ~/GOG Games/SteamWorld Heist/
+
+# To compress or decompress:
+$ steamy --compress ~/GOG Games/SteamWorld Heist/
+$ steamy --decompress ~/GOG Games/SteamWorld Heist/
+```
+
+## Getting started (Developing)
+
+```sh
+#  to run the code:
+#  1 - Install dependencies.
+$ poetry install
+#  2 - Load dependencies.
+$ poetry shell
+#  Now you can use Python and the dependencies installed.
+$ python ./src/cli.py
 #  To run tests:
 $ pytest ./
 #  To exit poetry shell (ctrl+d) or:
